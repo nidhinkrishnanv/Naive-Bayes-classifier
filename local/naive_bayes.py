@@ -1,21 +1,23 @@
-from process_data import get_data, DATA_SIZE
+from process_data import get_data, DATA_SIZE, readFile, paths
 import os
 import json
 import math
 import operator
 import time
 
-# verysmall full
-# DATA_SIZE = 'verysmall'
-# DATA_SIZE = 'full'
-
 if not os.path.isdir('models'):
     os.mkdir('models')
 
 def train():
+
+    print("Training")
+    
     since = time.time()
-    data = get_data(DATA_SIZE, 'train')
-    # print(data)
+
+    data = readFile(paths[DATA_SIZE], 'train')
+
+    
+    # Data structure to store parameters
     total_label_count = 0   # C(Y=ANY)
     label_count = {}        # C(Y=label)++
     label_word_count = {}    # Y=y and X=x
@@ -23,7 +25,6 @@ def train():
     vocab = set()
     dom_labels = set()
 
-    print("Training on data of size ", len(data))
 
     for labels, words in data:
         
@@ -47,6 +48,9 @@ def train():
 
                 label_any_word_count[label] += 1    # C(Y=label AND X=ANY)
 
+    time_elapsed = time.time() - since
+    print("Time for training {}".format(time_elapsed))
+
     naive_bayes_data = {'total_label_count' : total_label_count,
                         'label_count' : label_count,
                         'label_word_count' : label_word_count,
@@ -57,17 +61,25 @@ def train():
     with open('models/naive_bayes_data.json', 'w') as f:
         json.dump(naive_bayes_data, f)
 
-    time_elapsed = time.time() - since
-    print("Time for training {}".format(time_elapsed))
     print()
+
+    return naive_bayes_data
+    
 
 def get_model():
     with open('models/naive_bayes_data.json', 'r') as f:
         return json.load(f)
 
-def devel(m):
+def devel(nb=None, m=1):
+    
+    if not nb:
+        nb = get_model()
+
+    print("Validating ")
+
     since = time.time()
-    nb = get_model()
+
+    data = readFile(paths[DATA_SIZE], 'devel')
 
     correct = 0;
     prob_y = {}
@@ -84,12 +96,7 @@ def devel(m):
 
     q_x = 1 / len_v
     q_y = 1 / len(dom_labels)
-
-
-    data = get_data(DATA_SIZE, 'devel')
-
-    print("Validating on data of size ", len(data))
-    print("Current m {} value".format(m))
+    
     # print(data[:4])
     for labels, words in data:
         for label in dom_labels:
@@ -105,19 +112,26 @@ def devel(m):
 
         if max_label in labels:
             correct +=1
-
-    print(correct)
-    # print(len(data))
-    print("Accuracy {:.4f}".format(correct/len(data)))
     time_elapsed = time.time() - since
-    print("Time for training {}".format(time_elapsed))
+
+
+    print("Time for Validating {}".format(time_elapsed))
+    print("Accuracy {:.4f}".format(correct/len(data)))
+    
     print()
     return correct/len(data)
 
 
-def test(m=1):
+def test(nb=None, m=1):
+    if not nb:
+        nb = get_model()
+
+
+    print("Testing  ")
+
     since = time.time()
-    nb = get_model()
+
+    data = readFile(paths[DATA_SIZE], 'test')
 
     correct = 0;
     prob_y = {}
@@ -136,9 +150,6 @@ def test(m=1):
     q_y = 1 / len(dom_labels)
 
 
-    data = get_data(DATA_SIZE, 'test')
-
-    print("Testing on data of size ", len(data))
 
     for labels, words in data:
         for label in dom_labels:
@@ -154,21 +165,55 @@ def test(m=1):
 
         if max_label in labels:
             correct +=1
-    print(correct)
-    # print(len(data))
-    print("Accuracy {:.4f}".format(correct/len(data)))
+
     time_elapsed = time.time() - since
+
     print("Time for Testing {}".format(time_elapsed))
+
+    print("Accuracy {:.4f}".format(correct/len(data)))
     print()
 
 
+def count_param():
+    nb = get_model()
+    total_label_count = nb['total_label_count']
+    label_count = nb['label_count']
 
+    label_word_count = nb['label_word_count'] 
+    label_any_word_count = nb['label_any_word_count']
+
+    len_v = nb['len_vocab']
+    dom_labels = nb['dom_labels']
+
+    total_param_c = 1
+
+    label_count_param_c = len(label_count)
+    total_param_c += label_count_param_c
+
+    label_word_count_param_c = 0
+    
+    for label in label_any_word_count:
+        label_word_count_param_c += len(label_word_count[label])
+    total_param_c += label_word_count_param_c
+
+    label_any_word_count_param_c = len(label_any_word_count)
+    total_param_c += label_any_word_count_param_c
+
+
+    dom_labels_param_c = len(dom_labels)
+
+    print("Param count for C(Y=label) " + str(label_count_param_c))
+    print("Param count for Y=y and X=x " + str(label_word_count_param_c))
+    print("Param count for Y=y and X=ANY " + str(label_any_word_count_param_c))
+    print("Number of dom labels " +str(dom_labels_param_c))
+    print("Total param count " + str(total_param_c))
+    print('total_label_count ' + str(total_label_count))
 
 if __name__ == "__main__":
     
-    train()
+    nb = train()
 
-    best_acc = 0
+    # best_acc = 0
     # m_vals = [0.1, 0.2, 0.4, 0.6, 0.8, 0.9]
     # m_vals = [0.0001, 0.001, 0.01]
     # for m in m_vals:
@@ -177,6 +222,10 @@ if __name__ == "__main__":
     #         best_acc = acc
     # print("Best acc : {:.5f}\n".format(best_acc))
 
-    # test(0.0001)
+    # test(nb, 0.0001)
 
-    test(1)
+    devel(nb, 1)
+
+    test(nb, 1)
+
+    count_param()
