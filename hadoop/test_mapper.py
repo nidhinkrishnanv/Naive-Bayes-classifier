@@ -19,6 +19,6 @@ for line in sys.stdin:
 
     fields = data.split(" ", 2)
     # print(line)
-    print("{}\t~a_data {}".format(fields[0], fields[2]))
-    print("{}\t~b_label {}".format(fields[0], labels))
+    print("{}\t~a_label {}".format(fields[0], labels))
+    print("{}\t~b_data {}".format(fields[0], fields[2]))
 

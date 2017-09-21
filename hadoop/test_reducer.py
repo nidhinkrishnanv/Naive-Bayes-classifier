@@ -17,7 +17,7 @@ len_vocab = 0
 line_count = 0
 label_any_word_count = {}  # Y=y and X=ANY
 dom_size = 0
-label_and_word_count = {}
+label_word_count = {}
 
 # label_word_count = {}    # Y=y and X=x
 # vocab = set()
@@ -68,7 +68,7 @@ q_y = 1/dom_size
 
 for line in sys.stdin:
 
-    num_doc += 1
+    # print(line)
 
     line = line.strip()
 
@@ -83,16 +83,19 @@ for line in sys.stdin:
             # print(sorted_value)
 
             # Get the ground truths
-            _, labels = sorted_value[1].split(" ", 1)
+            _, labels = sorted_value[0].split(" ", 1)
             labels = labels.split(",")
             labels[-1] = labels[-1].strip()
 
-            words = [x for x in sorted_value[0].split() if x not in stopWords]
+            sentence = sorted_value[1].split()
+            sentence[0] = sentence[0].strip("\"")
+            sentence[-2] = sentence[-2].strip("\"@en")
+
+            words = [x for x in sentence if x not in stopWords]
 
             prob_y = {}
-            for label in label_count:
-                prob_y[label] = math.log((label_count[label]+m*q_y)/(total_label_count+m))
 
+            label_word_count = {}
             for i in range(2, len(sorted_value)):
                 # Ignore ~ctr_for and get word and count label list
                 _, word, counts = sorted_value[i].split(" ", 2)
@@ -103,33 +106,54 @@ for line in sys.stdin:
                     # Get the count and label.
                     count, _, label = count_label.split("=", 2)
 
-                    # Calculate prob for label.
-                    num = int(count) + m*q_x
-                    den = label_any_word_count[label] + m
+                    if label not in label_word_count:
+                        label_word_count[label] ={}
 
+                    label_word_count[label][word] = int(count)
+
+            for label in label_count:
+                prob_y[label] = math.log( (label_count[label]+m*q_y) / (total_label_count+m) )
+                for word in words:
+                    if label in label_word_count and word in label_word_count[label]:
+                        num = label_word_count[label][word] + m*q_x
+                    else:
+                        num = m*q_x
+                    den = label_any_word_count[label] + m
                     prob_y[label] += math.log(num/den)
 
-                    # if lable not in label_word_count:
-                    #     label_word_count[label] = {}
-                    # label_word_count[label][word] = count
             max_label = max(prob_y, key=prob_y.get)
-
-            print("{}\t{}".format(Id, max_label))
-
-            print("{}\tgt {}".format(Id, labels))
 
             if max_label in labels:
                 num_correct += 1
 
-            # test for labels
-            # prob_y = {}
-            # for label in label_count:
-            #     prob_y[label] = Math.log((label_count[label]+m*q_y)/(total_label_count+m))
-            #     for word in words:
-            #         if word in label_word_count[label]:
-            #             num = 
+            print("{}\t{}".format(prev_Id, max_label))
+            print("{}\tGroud truth : {}".format(prev_Id, labels))
 
         value_list = [value]
         prev_Id = Id
+        num_doc += 1
 
-print("Stat\t{} {}".format(num_correct, num_doc))
+print("Stats\t{} {}".format(num_correct, num_doc))
+
+
+            # for label in label_count:
+            #     prob_y[label] = math.log((label_count[label]+m*q_y)/(total_label_count+m))
+
+            # for i in range(2, len(sorted_value)):
+            #     # Ignore ~ctr_for and get word and count label list
+            #     _, word, counts = sorted_value[i].split(" ", 2)
+
+            #     if word in words_set:
+            #         words_set.remove(word)
+
+            #     # print(counts)
+            #     for count_label in counts.split():
+
+            #         # Get the count and label.
+            #         count, _, label = count_label.split("=", 2)
+
+            #         # Calculate prob for label.
+            #         num = int(count) + m*q_x
+            #         den = label_any_word_count[label] + m
+
+            #         prob_y[label] += math.log(num/den)
