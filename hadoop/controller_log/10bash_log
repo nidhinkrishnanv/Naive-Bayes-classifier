@@ -1,0 +1,436 @@
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+17/09/21 16:25:37 INFO fs.TrashPolicyDefault: Moved: 'hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/event_counts' to trash at: hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/.Trash/Current/user/nidhinkrishnanv/event_counts1505991337228
+17/09/21 16:25:38 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+packageJobJar: [./count_mapper.py, ./count_reducer.py] [/usr/hdp/2.6.1.0-129/hadoop-mapreduce/hadoop-streaming-2.7.3.2.6.1.0-129.jar] /tmp/streamjob4005107742748387350.jar tmpDir=null
+17/09/21 16:25:39 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:25:39 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:25:39 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:25:39 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:25:40 INFO mapred.FileInputFormat: Total input paths to process : 1
+17/09/21 16:25:40 INFO mapreduce.JobSubmitter: number of splits:2
+17/09/21 16:25:40 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1503400455897_1273
+17/09/21 16:25:41 INFO impl.YarnClientImpl: Submitted application application_1503400455897_1273
+17/09/21 16:25:41 INFO mapreduce.Job: The url to track the job: http://turing.cds.iisc.ac.in:8088/proxy/application_1503400455897_1273/
+17/09/21 16:25:41 INFO mapreduce.Job: Running job: job_1503400455897_1273
+17/09/21 16:25:49 INFO mapreduce.Job: Job job_1503400455897_1273 running in uber mode : false
+17/09/21 16:25:49 INFO mapreduce.Job:  map 0% reduce 0%
+17/09/21 16:26:00 INFO mapreduce.Job:  map 10% reduce 0%
+17/09/21 16:26:03 INFO mapreduce.Job:  map 16% reduce 0%
+17/09/21 16:26:06 INFO mapreduce.Job:  map 23% reduce 0%
+17/09/21 16:26:09 INFO mapreduce.Job:  map 29% reduce 0%
+17/09/21 16:26:12 INFO mapreduce.Job:  map 36% reduce 0%
+17/09/21 16:26:15 INFO mapreduce.Job:  map 43% reduce 0%
+17/09/21 16:26:18 INFO mapreduce.Job:  map 50% reduce 0%
+17/09/21 16:26:21 INFO mapreduce.Job:  map 56% reduce 0%
+17/09/21 16:26:24 INFO mapreduce.Job:  map 63% reduce 0%
+17/09/21 16:26:27 INFO mapreduce.Job:  map 67% reduce 0%
+17/09/21 16:26:47 INFO mapreduce.Job:  map 83% reduce 0%
+17/09/21 16:26:54 INFO mapreduce.Job:  map 100% reduce 0%
+17/09/21 16:26:58 INFO mapreduce.Job:  map 100% reduce 9%
+17/09/21 16:26:59 INFO mapreduce.Job:  map 100% reduce 46%
+17/09/21 16:27:01 INFO mapreduce.Job:  map 100% reduce 52%
+17/09/21 16:27:02 INFO mapreduce.Job:  map 100% reduce 76%
+17/09/21 16:27:03 INFO mapreduce.Job:  map 100% reduce 77%
+17/09/21 16:27:04 INFO mapreduce.Job:  map 100% reduce 80%
+17/09/21 16:27:05 INFO mapreduce.Job:  map 100% reduce 92%
+17/09/21 16:27:06 INFO mapreduce.Job:  map 100% reduce 93%
+17/09/21 16:27:07 INFO mapreduce.Job:  map 100% reduce 95%
+17/09/21 16:27:08 INFO mapreduce.Job:  map 100% reduce 99%
+17/09/21 16:27:11 INFO mapreduce.Job:  map 100% reduce 100%
+17/09/21 16:27:12 INFO mapreduce.Job: Job job_1503400455897_1273 completed successfully
+17/09/21 16:27:12 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=1225199663
+		FILE: Number of bytes written=2452202448
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=131308644
+		HDFS: Number of bytes written=91528252
+		HDFS: Number of read operations=36
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=20
+	Job Counters 
+		Launched map tasks=2
+		Launched reduce tasks=10
+		Rack-local map tasks=2
+		Total time spent by all maps in occupied slots (ms)=709368
+		Total time spent by all reduces in occupied slots (ms)=2059428
+		Total time spent by all map tasks (ms)=118228
+		Total time spent by all reduce tasks (ms)=171619
+		Total vcore-milliseconds taken by all map tasks=118228
+		Total vcore-milliseconds taken by all reduce tasks=171619
+		Total megabyte-milliseconds taken by all map tasks=726392832
+		Total megabyte-milliseconds taken by all reduce tasks=2108854272
+	Map-Reduce Framework
+		Map input records=214997
+		Map output records=31755936
+		Map output bytes=1161687635
+		Map output materialized bytes=1225199723
+		Input split bytes=274
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=3017112
+		Reduce shuffle bytes=1225199723
+		Reduce input records=31755936
+		Reduce output records=2230872
+		Spilled Records=63511872
+		Shuffled Maps =20
+		Failed Shuffles=0
+		Merged Map outputs=20
+		GC time elapsed (ms)=1802
+		CPU time spent (ms)=305410
+		Physical memory (bytes) snapshot=8191791104
+		Virtual memory (bytes) snapshot=138461319168
+		Total committed heap usage (bytes)=9470738432
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=131308370
+	File Output Format Counters 
+		Bytes Written=91528252
+17/09/21 16:27:12 INFO streaming.StreamJob: Output directory: /user/nidhinkrishnanv/event_counts
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+17/09/21 16:27:14 INFO fs.TrashPolicyDefault: Moved: 'hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/word' to trash at: hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/.Trash/Current/user/nidhinkrishnanv/word1505991434535
+17/09/21 16:27:15 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+packageJobJar: [./word_mapper.py, ./word_reducer.py] [/usr/hdp/2.6.1.0-129/hadoop-mapreduce/hadoop-streaming-2.7.3.2.6.1.0-129.jar] /tmp/streamjob7800911015965424180.jar tmpDir=null
+17/09/21 16:27:16 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:27:16 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:27:16 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:27:16 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:27:17 INFO mapred.FileInputFormat: Total input paths to process : 10
+17/09/21 16:27:17 INFO mapreduce.JobSubmitter: number of splits:10
+17/09/21 16:27:17 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1503400455897_1276
+17/09/21 16:27:18 INFO impl.YarnClientImpl: Submitted application application_1503400455897_1276
+17/09/21 16:27:18 INFO mapreduce.Job: The url to track the job: http://turing.cds.iisc.ac.in:8088/proxy/application_1503400455897_1276/
+17/09/21 16:27:18 INFO mapreduce.Job: Running job: job_1503400455897_1276
+17/09/21 16:27:25 INFO mapreduce.Job: Job job_1503400455897_1276 running in uber mode : false
+17/09/21 16:27:25 INFO mapreduce.Job:  map 0% reduce 0%
+17/09/21 16:27:33 INFO mapreduce.Job:  map 60% reduce 0%
+17/09/21 16:27:34 INFO mapreduce.Job:  map 80% reduce 0%
+17/09/21 16:27:36 INFO mapreduce.Job:  map 100% reduce 0%
+17/09/21 16:27:40 INFO mapreduce.Job:  map 100% reduce 70%
+17/09/21 16:27:41 INFO mapreduce.Job:  map 100% reduce 100%
+17/09/21 16:27:42 INFO mapreduce.Job: Job job_1503400455897_1276 completed successfully
+17/09/21 16:27:43 INFO mapreduce.Job: Counters: 50
+	File System Counters
+		FILE: Number of bytes read=95988229
+		FILE: Number of bytes written=194983208
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=91529552
+		HDFS: Number of bytes written=79095034
+		HDFS: Number of read operations=60
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=20
+	Job Counters 
+		Launched map tasks=10
+		Launched reduce tasks=10
+		Data-local map tasks=6
+		Rack-local map tasks=4
+		Total time spent by all maps in occupied slots (ms)=394818
+		Total time spent by all reduces in occupied slots (ms)=653112
+		Total time spent by all map tasks (ms)=65803
+		Total time spent by all reduce tasks (ms)=54426
+		Total vcore-milliseconds taken by all map tasks=65803
+		Total vcore-milliseconds taken by all reduce tasks=54426
+		Total megabyte-milliseconds taken by all map tasks=404293632
+		Total megabyte-milliseconds taken by all reduce tasks=668786688
+	Map-Reduce Framework
+		Map input records=2230872
+		Map output records=2230811
+		Map output bytes=91526522
+		Map output materialized bytes=95988769
+		Input split bytes=1300
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=786238
+		Reduce shuffle bytes=95988769
+		Reduce input records=2230811
+		Reduce output records=786238
+		Spilled Records=4461622
+		Shuffled Maps =100
+		Failed Shuffles=0
+		Merged Map outputs=100
+		GC time elapsed (ms)=1746
+		CPU time spent (ms)=86110
+		Physical memory (bytes) snapshot=26664882176
+		Virtual memory (bytes) snapshot=194930667520
+		Total committed heap usage (bytes)=25815416832
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=91528252
+	File Output Format Counters 
+		Bytes Written=79095034
+17/09/21 16:27:43 INFO streaming.StreamJob: Output directory: /user/nidhinkrishnanv/word
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+17/09/21 16:27:45 INFO fs.TrashPolicyDefault: Moved: 'hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/cache' to trash at: hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/.Trash/Current/user/nidhinkrishnanv/cache1505991465147
+17/09/21 16:27:46 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+packageJobJar: [./cache_map.py, ./cache_reducer.py] [/usr/hdp/2.6.1.0-129/hadoop-mapreduce/hadoop-streaming-2.7.3.2.6.1.0-129.jar] /tmp/streamjob3822749170839979177.jar tmpDir=null
+17/09/21 16:27:47 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:27:47 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:27:47 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:27:47 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:27:48 INFO mapred.FileInputFormat: Total input paths to process : 10
+17/09/21 16:27:48 INFO mapreduce.JobSubmitter: number of splits:10
+17/09/21 16:27:48 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1503400455897_1278
+17/09/21 16:27:48 INFO impl.YarnClientImpl: Submitted application application_1503400455897_1278
+17/09/21 16:27:49 INFO mapreduce.Job: The url to track the job: http://turing.cds.iisc.ac.in:8088/proxy/application_1503400455897_1278/
+17/09/21 16:27:49 INFO mapreduce.Job: Running job: job_1503400455897_1278
+17/09/21 16:27:56 INFO mapreduce.Job: Job job_1503400455897_1278 running in uber mode : false
+17/09/21 16:27:56 INFO mapreduce.Job:  map 0% reduce 0%
+17/09/21 16:28:03 INFO mapreduce.Job:  map 40% reduce 0%
+17/09/21 16:28:04 INFO mapreduce.Job:  map 80% reduce 0%
+17/09/21 16:28:05 INFO mapreduce.Job:  map 100% reduce 0%
+17/09/21 16:28:08 INFO mapreduce.Job:  map 100% reduce 100%
+17/09/21 16:28:09 INFO mapreduce.Job: Job job_1503400455897_1278 completed successfully
+17/09/21 16:28:09 INFO mapreduce.Job: Counters: 50
+	File System Counters
+		FILE: Number of bytes read=3951
+		FILE: Number of bytes written=1660387
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=91529552
+		HDFS: Number of bytes written=3580
+		HDFS: Number of read operations=33
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=10
+		Launched reduce tasks=1
+		Data-local map tasks=7
+		Rack-local map tasks=3
+		Total time spent by all maps in occupied slots (ms)=370770
+		Total time spent by all reduces in occupied slots (ms)=44664
+		Total time spent by all map tasks (ms)=61795
+		Total time spent by all reduce tasks (ms)=3722
+		Total vcore-milliseconds taken by all map tasks=61795
+		Total vcore-milliseconds taken by all reduce tasks=3722
+		Total megabyte-milliseconds taken by all map tasks=379668480
+		Total megabyte-milliseconds taken by all reduce tasks=45735936
+	Map-Reduce Framework
+		Map input records=2230872
+		Map output records=111
+		Map output bytes=3723
+		Map output materialized bytes=4005
+		Input split bytes=1300
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=102
+		Reduce shuffle bytes=4005
+		Reduce input records=111
+		Reduce output records=102
+		Spilled Records=222
+		Shuffled Maps =10
+		Failed Shuffles=0
+		Merged Map outputs=10
+		GC time elapsed (ms)=990
+		CPU time spent (ms)=28260
+		Physical memory (bytes) snapshot=24087687168
+		Virtual memory (bytes) snapshot=83018121216
+		Total committed heap usage (bytes)=23609212928
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=91528252
+	File Output Format Counters 
+		Bytes Written=3580
+17/09/21 16:28:09 INFO streaming.StreamJob: Output directory: /user/nidhinkrishnanv/cache
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+17/09/21 16:28:11 INFO fs.TrashPolicyDefault: Moved: 'hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/request' to trash at: hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/.Trash/Current/user/nidhinkrishnanv/request1505991491438
+17/09/21 16:28:12 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+packageJobJar: [./request_mapper.py, ./request_reducer.py] [/usr/hdp/2.6.1.0-129/hadoop-mapreduce/hadoop-streaming-2.7.3.2.6.1.0-129.jar] /tmp/streamjob3458074014292822953.jar tmpDir=null
+17/09/21 16:28:13 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:28:13 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:28:13 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:28:13 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:28:14 INFO mapred.FileInputFormat: Total input paths to process : 11
+17/09/21 16:28:14 INFO mapreduce.JobSubmitter: number of splits:11
+17/09/21 16:28:14 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1503400455897_1280
+17/09/21 16:28:15 INFO impl.YarnClientImpl: Submitted application application_1503400455897_1280
+17/09/21 16:28:15 INFO mapreduce.Job: The url to track the job: http://turing.cds.iisc.ac.in:8088/proxy/application_1503400455897_1280/
+17/09/21 16:28:15 INFO mapreduce.Job: Running job: job_1503400455897_1280
+17/09/21 16:28:22 INFO mapreduce.Job: Job job_1503400455897_1280 running in uber mode : false
+17/09/21 16:28:22 INFO mapreduce.Job:  map 0% reduce 0%
+17/09/21 16:28:29 INFO mapreduce.Job:  map 36% reduce 0%
+17/09/21 16:28:30 INFO mapreduce.Job:  map 91% reduce 0%
+17/09/21 16:28:32 INFO mapreduce.Job:  map 100% reduce 0%
+17/09/21 16:28:36 INFO mapreduce.Job:  map 100% reduce 10%
+17/09/21 16:28:37 INFO mapreduce.Job:  map 100% reduce 60%
+17/09/21 16:28:38 INFO mapreduce.Job:  map 100% reduce 100%
+17/09/21 16:28:40 INFO mapreduce.Job: Job job_1503400455897_1280 completed successfully
+17/09/21 16:28:40 INFO mapreduce.Job: Counters: 50
+	File System Counters
+		FILE: Number of bytes read=145161400
+		FILE: Number of bytes written=293482388
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=91579553
+		HDFS: Number of bytes written=984263866
+		HDFS: Number of read operations=63
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=20
+	Job Counters 
+		Launched map tasks=11
+		Launched reduce tasks=10
+		Data-local map tasks=8
+		Rack-local map tasks=3
+		Total time spent by all maps in occupied slots (ms)=405924
+		Total time spent by all reduces in occupied slots (ms)=681768
+		Total time spent by all map tasks (ms)=67654
+		Total time spent by all reduce tasks (ms)=56814
+		Total vcore-milliseconds taken by all map tasks=67654
+		Total vcore-milliseconds taken by all reduce tasks=56814
+		Total megabyte-milliseconds taken by all map tasks=415666176
+		Total megabyte-milliseconds taken by all reduce tasks=698130432
+	Map-Reduce Framework
+		Map input records=816235
+		Map output records=1739148
+		Map output bytes=141521400
+		Map output materialized bytes=145162000
+		Input split bytes=1356
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=835531
+		Reduce shuffle bytes=145162000
+		Reduce input records=1739148
+		Reduce output records=891634
+		Spilled Records=3478296
+		Shuffled Maps =110
+		Failed Shuffles=0
+		Merged Map outputs=110
+		GC time elapsed (ms)=1791
+		CPU time spent (ms)=87540
+		Physical memory (bytes) snapshot=29157257216
+		Virtual memory (bytes) snapshot=201976193024
+		Total committed heap usage (bytes)=28067233792
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=91578197
+	File Output Format Counters 
+		Bytes Written=984263866
+17/09/21 16:28:40 INFO streaming.StreamJob: Output directory: /user/nidhinkrishnanv/request
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+17/09/21 16:28:42 INFO fs.TrashPolicyDefault: Moved: 'hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/test' to trash at: hdfs://turing.cds.iisc.ac.in:8020/user/nidhinkrishnanv/.Trash/Current/user/nidhinkrishnanv/test1505991522630
+17/09/21 16:28:43 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+17/09/21 16:28:44 WARN streaming.StreamJob: -cacheFile option is deprecated, please use -files instead.
+packageJobJar: [./test_mapper.py, ./test_reducer.py] [/usr/hdp/2.6.1.0-129/hadoop-mapreduce/hadoop-streaming-2.7.3.2.6.1.0-129.jar] /tmp/streamjob143856364908256829.jar tmpDir=null
+17/09/21 16:28:44 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:28:44 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:28:44 INFO client.RMProxy: Connecting to ResourceManager at turing.cds.iisc.ac.in/10.24.1.32:8050
+17/09/21 16:28:44 INFO client.AHSProxy: Connecting to Application History server at turing.cds.iisc.ac.in/10.24.1.32:10200
+17/09/21 16:28:45 INFO mapred.FileInputFormat: Total input paths to process : 11
+17/09/21 16:28:45 INFO mapreduce.JobSubmitter: number of splits:11
+17/09/21 16:28:45 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1503400455897_1281
+17/09/21 16:28:46 INFO impl.YarnClientImpl: Submitted application application_1503400455897_1281
+17/09/21 16:28:46 INFO mapreduce.Job: The url to track the job: http://turing.cds.iisc.ac.in:8088/proxy/application_1503400455897_1281/
+17/09/21 16:28:46 INFO mapreduce.Job: Running job: job_1503400455897_1281
+17/09/21 16:28:53 INFO mapreduce.Job: Job job_1503400455897_1281 running in uber mode : false
+17/09/21 16:28:53 INFO mapreduce.Job:  map 0% reduce 0%
+17/09/21 16:29:00 INFO mapreduce.Job:  map 55% reduce 0%
+17/09/21 16:29:01 INFO mapreduce.Job:  map 73% reduce 0%
+17/09/21 16:29:02 INFO mapreduce.Job:  map 82% reduce 0%
+17/09/21 16:29:03 INFO mapreduce.Job:  map 100% reduce 0%
+17/09/21 16:29:12 INFO mapreduce.Job:  map 100% reduce 74%
+17/09/21 16:29:15 INFO mapreduce.Job:  map 100% reduce 82%
+17/09/21 16:29:18 INFO mapreduce.Job:  map 100% reduce 89%
+17/09/21 16:29:21 INFO mapreduce.Job:  map 100% reduce 96%
+17/09/21 16:29:22 INFO mapreduce.Job:  map 100% reduce 98%
+17/09/21 16:29:23 INFO mapreduce.Job:  map 100% reduce 100%
+17/09/21 16:29:24 INFO mapreduce.Job: Job job_1503400455897_1281 completed successfully
+17/09/21 16:29:24 INFO mapreduce.Job: Counters: 50
+	File System Counters
+		FILE: Number of bytes read=1002721290
+		FILE: Number of bytes written=2008605486
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=996748415
+		HDFS: Number of bytes written=5088720
+		HDFS: Number of read operations=63
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=20
+	Job Counters 
+		Launched map tasks=11
+		Launched reduce tasks=10
+		Data-local map tasks=6
+		Rack-local map tasks=5
+		Total time spent by all maps in occupied slots (ms)=417816
+		Total time spent by all reduces in occupied slots (ms)=2401200
+		Total time spent by all map tasks (ms)=69636
+		Total time spent by all reduce tasks (ms)=200100
+		Total vcore-milliseconds taken by all map tasks=69636
+		Total vcore-milliseconds taken by all reduce tasks=200100
+		Total megabyte-milliseconds taken by all map tasks=427843584
+		Total megabyte-milliseconds taken by all reduce tasks=2458828800
+	Map-Reduce Framework
+		Map input records=921631
+		Map output records=951628
+		Map output bytes=999196618
+		Map output materialized bytes=1002721890
+		Input split bytes=1386
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=29997
+		Reduce shuffle bytes=1002721890
+		Reduce input records=951628
+		Reduce output records=59984
+		Spilled Records=1903256
+		Shuffled Maps =110
+		Failed Shuffles=0
+		Merged Map outputs=110
+		GC time elapsed (ms)=2523
+		CPU time spent (ms)=218880
+		Physical memory (bytes) snapshot=30802046976
+		Virtual memory (bytes) snapshot=201986052096
+		Total committed heap usage (bytes)=30578573312
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=996747029
+	File Output Format Counters 
+		Bytes Written=5088720
+17/09/21 16:29:24 INFO streaming.StreamJob: Output directory: /user/nidhinkrishnanv/test
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
