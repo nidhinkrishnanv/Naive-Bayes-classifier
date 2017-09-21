@@ -1,40 +1,41 @@
 #!/usr/bin/env python3
 
-from operator import itemgetter
 import sys
+import io
 
-current_word = None
+prev_word = None
 current_count = 0
 word = None
 
-# input comes from STDIN
+prev_lv_word = 'a'
+len_vocab = 0
+
 for line in sys.stdin:
-    # remove leading and trailing whitespace
+
     line = line.strip()
 
-    # parse the input we got from mapper.py
-    word, count = line.split('\t', 1)
-    count = int(count)
-    # # convert count (currently a string) to int
-    # try:
-    #     count = int(count)
-    # except ValueError:
-    #     # count was not a number, so silently
-    #     # ignore/discard this line
-    #     continue
+    # parse the input 
+    word, value = line.split('\t', 1)
 
-    if current_word == word:
+    # To get vocabulary length
+    if value == 'len_vocab':
+        if prev_lv_word != word:
+            len_vocab += 1
+            prev_lv_word = word
+        continue
+
+    count = int(value)
+
+    if prev_word == word:
         current_count += count
     else:
-        if current_word:
-            # write result to STDOUT
-            # print '%s\t%s' % (current_word, current_count)
-            print('{}\t{}'.format(current_word, current_count))
-
+        if prev_word:
+            print('{}\t{}'.format(prev_word, current_count))
+        prev_word = word
         current_count = count
-        current_word = word
 
 # OUTPUT last word.
-if current_word == word:
-    print('{}\t{}'.format(current_word, current_count))
-    # print '%s\t%s' % (current_word, current_count)
+if prev_word == word:
+    print('{}\t{}'.format(prev_word, current_count))
+
+print("len_vocab\t{}".format(len_vocab))
