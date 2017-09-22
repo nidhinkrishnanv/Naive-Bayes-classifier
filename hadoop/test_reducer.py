@@ -133,27 +133,56 @@ for line in sys.stdin:
         prev_Id = Id
         num_doc += 1
 
+if prev_Id == Id:
+    sorted_value = sorted(value_list)
+
+    # print(sorted_value)
+
+    # Get the ground truths
+    _, labels = sorted_value[0].split(" ", 1)
+    labels = labels.split(",")
+    labels[-1] = labels[-1].strip()
+
+    sentence = sorted_value[1].split()
+    sentence[0] = sentence[0].strip("\"")
+    sentence[-2] = sentence[-2].strip("\"@en")
+
+    words = [x for x in sentence if x not in stopWords]
+
+    prob_y = {}
+
+    label_word_count = {}
+    for i in range(2, len(sorted_value)):
+        # Ignore ~ctr_for and get word and count label list
+        _, word, counts = sorted_value[i].split(" ", 2)
+
+        # print(counts)
+        for count_label in counts.split():
+
+            # Get the count and label.
+            count, _, label = count_label.split("=", 2)
+
+            if label not in label_word_count:
+                label_word_count[label] ={}
+
+            label_word_count[label][word] = int(count)
+
+    for label in label_count:
+        prob_y[label] = math.log( (label_count[label]+m*q_y) / (total_label_count+m) )
+        for word in words:
+            if label in label_word_count and word in label_word_count[label]:
+                num = label_word_count[label][word] + m*q_x
+            else:
+                num = m*q_x
+            den = label_any_word_count[label] + m
+            prob_y[label] += math.log(num/den)
+
+    max_label = max(prob_y, key=prob_y.get)
+
+    if max_label in labels:
+        num_correct += 1
+
+    print("{}\t{}".format(prev_Id, max_label))
+    print("{}\tGroud truth : {}".format(prev_Id, labels))
+
 print("Stats\t{} {}".format(num_correct, num_doc))
-
-
-            # for label in label_count:
-            #     prob_y[label] = math.log((label_count[label]+m*q_y)/(total_label_count+m))
-
-            # for i in range(2, len(sorted_value)):
-            #     # Ignore ~ctr_for and get word and count label list
-            #     _, word, counts = sorted_value[i].split(" ", 2)
-
-            #     if word in words_set:
-            #         words_set.remove(word)
-
-            #     # print(counts)
-            #     for count_label in counts.split():
-
-            #         # Get the count and label.
-            #         count, _, label = count_label.split("=", 2)
-
-            #         # Calculate prob for label.
-            #         num = int(count) + m*q_x
-            #         den = label_any_word_count[label] + m
-
-            #         prob_y[label] += math.log(num/den)
